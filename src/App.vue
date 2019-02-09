@@ -1,28 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="header">
+      <div class="center">
+        <div class="logo">
+          <img src="" alt="">
+        </div>
+        <ul class="nav">
+          <router-link tag="li" to="/">首页</router-link>
+          <router-link tag="li" to="/learn">课程</router-link>
+          <router-link tag="li" to="/student">学生</router-link>
+          <router-link tag="li" to="/learn">关于</router-link>
+          <router-link tag="li" to="/community">社区</router-link>
+          
+        </ul>
+      </div>
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
