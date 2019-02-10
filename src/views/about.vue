@@ -1,6 +1,6 @@
 <template>
     <div>
-        about
+        关于
     </div>
 
 </template>

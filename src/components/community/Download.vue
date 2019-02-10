@@ -1,7 +1,7 @@
 <template>
-<div>
-    学习
-</div>
+    <div>
+        下载
+    </div>
 
 </template>
 

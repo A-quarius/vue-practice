@@ -5,6 +5,9 @@ import About from './views/about.vue'
 import Learn from './views/learn.vue'
 import Student from './views/student.vue'
 import Community from './views/community.vue'
+import Academic from "@/components/community/Academic.vue"
+import Download from "@/components/community/Download.vue"
+import Personal from "@/components/community/Personal.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -12,7 +15,7 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'home',
       component: Home
     },
@@ -34,7 +37,25 @@ export default new Router({
     {
       path: '/community',
       name: 'community',
-      component: Community
+      component: Community,
+      children:[
+        {
+          path: '/community/personal',
+          name: 'personal',
+          component: Personal
+        },
+        {
+          path: '/community/academic',
+          name: 'academic',
+          component: Academic
+        },
+        {
+          path: '/community/download',
+          name: 'download',
+          component: Download
+        },
+        
+      ]
     },
 
   ]

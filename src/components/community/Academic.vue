@@ -1,7 +1,7 @@
 <template>
-<div>
-    学习
-</div>
+    <div>
+        学术
+    </div>
 
 </template>
 
