@@ -1,16 +1,24 @@
 <template>
-    <div>
-        <ul >
-            <!-- <li>{{item.title}}</li> -->
-            <router-link :to="{name: 'question', params: {id: item.questionId}}" tag="li" v-for="item in questionList" :key="questionList.questionId">{{item.title}}</router-link>
-        </ul>
-        
-    </div>
+<div>
+    {{questionList.title}}
+</div>
 
 </template>
 
 <script>
 export default {
+    created() {
+        const params = this.$route.params.id;
+        console.log(this.questionList)        
+        // const index = params.findIndex(params => params == questionList.questionId)
+        const index = this.questionList.findIndex( item => item.questionId == params )   
+             
+        if ( index == -1) {
+            this.$router.replace({name: 'err'})
+        } else {
+            this.questionList.title = this.questionList[index].title
+        }       
+    },
     data() {
         return {
             questionList: [

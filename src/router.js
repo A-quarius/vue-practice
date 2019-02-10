@@ -8,6 +8,9 @@ import Community from './views/community.vue'
 import Academic from "@/components/community/Academic.vue"
 import Download from "@/components/community/Download.vue"
 import Personal from "@/components/community/Personal.vue"
+import Question from "@/components/Question.vue"
+import err from "@/components/err.vue"
+
 Vue.use(Router)
 
 export default new Router({
@@ -38,6 +41,7 @@ export default new Router({
       path: '/community',
       name: 'community',
       component: Community,
+      redirect:'/community/academic',
       children:[
         {
           path: '/community/personal',
@@ -57,6 +61,16 @@ export default new Router({
         
       ]
     },
+    {
+      path: '/question/:id',
+      name: 'question',
+      component: Question
+    },
+    {
+      path: '/err.html',
+      name: 'err',
+      component: err
+    }
 
   ]
 })
