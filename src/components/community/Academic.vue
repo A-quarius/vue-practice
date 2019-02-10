@@ -11,6 +11,19 @@
 
 <script>
 export default {
+    beforeRouteEnter (to, from, next) {
+        if (to.matched[0].meta.login) {
+            next()
+        } else {
+            const answer = confirm("还没登陆")
+        if (answer) {
+            next({name: 'personal'})
+        } else {
+            next(false)
+        }
+        
+        }
+    },
     data() {
         return {
             questionList: [

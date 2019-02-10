@@ -13,14 +13,17 @@ import err from "@/components/err.vue"
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/home',
       name: 'home',
-      component: Home
+      components: {
+        default: Home,
+        'academic': Academic
+      }
     },
     {
       path: '/about',
@@ -41,6 +44,9 @@ export default new Router({
       path: '/community',
       name: 'community',
       component: Community,
+      meta: {
+        login: false
+      },
       redirect:'/community/academic',
       children:[
         {
@@ -70,7 +76,40 @@ export default new Router({
       path: '/err.html',
       name: 'err',
       component: err
+    },
+    {
+      path: '*',
+      redirect(to) {
+        console.log(to);
+        if (to.path == '/') {
+          return '/home'
+        } else {
+          return {name: "err"}
+        }
+      }
     }
 
   ]
 })
+
+// router.beforeEach( (to, from, next) => {
+//   /* to 到哪去
+//     from 从哪来
+//     next 让不让进
+//   */
+  
+//   if (to.path === '/community/academic') {
+//     const answer = confirm("你还没登录，要登录吗")
+  
+//     if (answer) {
+//       next({name: 'personal'})
+//     } else {
+//       next(false)
+//     }
+//   } else {
+//     next()
+//   }
+// })
+
+
+export default router;

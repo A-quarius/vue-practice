@@ -7,6 +7,7 @@
 
 <script>
 export default {
+    
     created() {
         const params = this.$route.params.id;
         console.log(this.questionList)        
